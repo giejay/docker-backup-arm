@@ -1,7 +1,7 @@
-FROM mickaelguene/arm64-debian 
+FROM resin/rpi-raspbian:jessie-20161026
 # Install cron
 RUN apt-get update
-RUN apt-get install -y cron git
+RUN apt-get install -y cron git ssh
 
 # Add crontab file in the cron directory
 ADD crontab /etc/cron.d/simple-cron
