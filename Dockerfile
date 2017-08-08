@@ -15,6 +15,9 @@ RUN chmod 0644 /etc/cron.d/simple-cron
 ADD backup.sh /backup.sh
 ADD pre-backup.sh /pre-backup.sh
 
+RUN git config --global user.email "backup@docker.com"
+RUN git config --global user.name "BackupJob"
+
 # Give execution rights backup.sh
 RUN chmod +x /backup.sh
 RUN chmod +x /pre-backup.sh
