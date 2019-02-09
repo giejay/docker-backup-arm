@@ -27,9 +27,7 @@ RUN apt-get install davfs2 rsync
 RUN mkdir /mnt/webdav
 ADD mount-webdav.sh /mount-webdav.sh
 
-RUN echo "test" > /var/log/cron.log
-
 #RUN service cron start
 
 # Run the command on container startup
-CMD bash /mount-webdav.sh && cron && sleep 15 && touch /etc/cron.d/simple-cron && tail -f /var/log/cron.log
+CMD bash /mount-webdav.sh && cron && sleep 15 && touch /etc/cron.d/simple-cron && : >> /var/log/cron.log && tail -f /var/log/cron.log
